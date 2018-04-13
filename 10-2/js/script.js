@@ -2,7 +2,7 @@ $(function(){
 
   console.log('DOM ready');
 
-	$('span:even').css('color', 'red');
+  $('span:even').css('color', 'red');
 
 	$('span').each(function(index, element) {
 		if(index % 2 !== 0) {
