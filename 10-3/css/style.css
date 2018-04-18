@@ -1,8 +1,9 @@
 body {
   box-sizing: border-box;
+  text-align: center;
 }
 
-#carousel {
+#carousel {  
   bottom: 0;
   height: 300px;
   left: 0;
@@ -11,10 +12,12 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  width: 400px;
+  width: 400px; 
 }
 
 #carousel ul {
+  margin: 0;
+  padding: 0;
   width: 2000px;
 }
 
@@ -28,4 +31,9 @@ body {
   height: 300px;
   object-fit: cover;
   width: 400px;
+}
+
+#left-scroll, #right-scroll {
+  height: 25px;
+  width: 25px;
 }
