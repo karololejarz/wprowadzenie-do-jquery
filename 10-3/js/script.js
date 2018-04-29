@@ -16,7 +16,7 @@ $(function(){
     var firstItem = carouselList.find('li:first');
     var lastItem = carouselList.find('li:last');
     firstItem.before(lastItem);
-    carouselList.css({marginRight:400});    
+    carouselList.css({marginLeft:-400});    
   };
 
   function slideForward() {
@@ -24,12 +24,12 @@ $(function(){
   };
 
   function slideBackward() {
-    carouselList.animate({'marginRight':-400}, 500, moveSlideBackward);
+    carouselList.animate({'marginLeft':0}, 500, moveSlideBackward);
   };
 
   function moveRadioBackward() {
     currentSlide--;
-    if (currentSlide != 0) {
+    if (currentSlide !== 0) {
       $("input[name=radio]:checked").prevAll(':radio:first').prop('checked', true);
     } else {
       $("input[name=radio]:last").prop('checked', true);
@@ -39,7 +39,7 @@ $(function(){
 
   function moveRadioForward() {
     currentSlide++;
-    if(currentSlide != 6) {
+    if(currentSlide !== 6) {
       $("input[name=radio]:checked").nextAll(':radio:first').prop('checked', true);
     } else {      
       $("input[name=radio]:first").prop('checked', true);
@@ -50,11 +50,13 @@ $(function(){
   $('#left-scroll').click(function() {
     slideBackward();
     moveRadioBackward();
+    console.log(currentSlide);
   });
 
   $('#right-scroll').click(function() {
     slideForward();
     moveRadioForward();
+    console.log(currentSlide);
   });
 
   $('#radio1').click(function() {
