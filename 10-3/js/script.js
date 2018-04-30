@@ -2,8 +2,10 @@ $(function(){
 
   var carouselList = $('#carousel ul');
   var currentSlide = 1;
+  var slideSize = 400;
   
-  setInterval(slideForward, 30000);
+  setInterval(slideForward, 3000);
+  setInterval(moveRadioForward, 3000);
 
   function moveSlideForward() {
     var firstItem = carouselList.find('li:first');
@@ -16,15 +18,15 @@ $(function(){
     var firstItem = carouselList.find('li:first');
     var lastItem = carouselList.find('li:last');
     firstItem.before(lastItem);
-    carouselList.css({marginRight:400});    
+    carouselList.css({marginRight:slideSize});    
   };
 
   function slideForward() {
-    carouselList.animate({'marginLeft':-400}, 500, moveSlideForward);
+    carouselList.animate({'marginLeft':-slideSize}, 500, moveSlideForward);
   };
 
   function slideBackward() {
-    carouselList.animate({'marginRight':-400}, 500, moveSlideBackward);
+    carouselList.animate({'marginRight':-slideSize}, 500, moveSlideBackward);
   };
 
   function moveRadioBackward() {
