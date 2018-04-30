@@ -4,8 +4,8 @@ $(function(){
   var currentSlide = 1;
   var slideSize = 400;
   
-  setInterval(slideForward, 300000);
-  setInterval(moveRadioForward, 300000);
+  setInterval(slideForward, 3000);
+  setInterval(moveRadioForward, 3000);
 
   function moveSlideForward() {
     var firstItem = carouselList.find('li:first');
@@ -26,7 +26,8 @@ $(function(){
   };
 
   function slideBackward() {
-    carouselList.animate({'marginLeft':0}, 500, moveSlideBackward);
+    moveSlideBackward();
+    carouselList.animate({'marginLeft':0}, 500);
   };
 
   function moveRadioBackward() {
