@@ -18,7 +18,7 @@ $(function(){
     var firstItem = carouselList.find('li:first');
     var lastItem = carouselList.find('li:last');
     firstItem.before(lastItem);
-    carouselList.css({marginRight:slideSize});    
+    carouselList.css({marginLeft:-slideSize});    
   };
 
   function slideForward() {
@@ -26,7 +26,8 @@ $(function(){
   };
 
   function slideBackward() {
-    carouselList.animate({'marginRight':-slideSize}, 500, moveSlideBackward);
+    moveSlideBackward();
+    carouselList.animate({'marginLeft':0}, 500);
   };
 
   function moveRadioBackward() {
