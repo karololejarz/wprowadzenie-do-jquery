@@ -2,8 +2,10 @@ $(function(){
 
   var carouselList = $('#carousel ul');
   var currentSlide = 1;
+  var slideSize = 400;
   
-  setInterval(slideForward, 30000);
+  setInterval(slideForward, 300000);
+  setInterval(moveRadioForward, 300000);
 
   function moveSlideForward() {
     var firstItem = carouselList.find('li:first');
@@ -16,11 +18,11 @@ $(function(){
     var firstItem = carouselList.find('li:first');
     var lastItem = carouselList.find('li:last');
     firstItem.before(lastItem);
-    carouselList.css({marginLeft:-400});    
+    carouselList.css({marginLeft:-slideSize});    
   };
 
   function slideForward() {
-    carouselList.animate({'marginLeft':-400}, 500, moveSlideForward);
+    carouselList.animate({'marginLeft':-slideSize}, 500, moveSlideForward);
   };
 
   function slideBackward() {
@@ -29,7 +31,7 @@ $(function(){
 
   function moveRadioBackward() {
     currentSlide--;
-    if (currentSlide !== 0) {
+    if (currentSlide != 0) {
       $("input[name=radio]:checked").prevAll(':radio:first').prop('checked', true);
     } else {
       $("input[name=radio]:last").prop('checked', true);
@@ -39,7 +41,7 @@ $(function(){
 
   function moveRadioForward() {
     currentSlide++;
-    if(currentSlide !== 6) {
+    if(currentSlide != 6) {
       $("input[name=radio]:checked").nextAll(':radio:first').prop('checked', true);
     } else {      
       $("input[name=radio]:first").prop('checked', true);
@@ -50,13 +52,11 @@ $(function(){
   $('#left-scroll').click(function() {
     slideBackward();
     moveRadioBackward();
-    console.log(currentSlide);
   });
 
   $('#right-scroll').click(function() {
     slideForward();
     moveRadioForward();
-    console.log(currentSlide);
   });
 
   $('#radio1').click(function() {
